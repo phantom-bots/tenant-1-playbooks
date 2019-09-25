@@ -7,7 +7,7 @@
             "clean": true,
             "code_block": "def is_ioc(value):\n    import phantom.utils as phutils\n    \n    ioc_funcs = [phutils.is_ip, phutils.is_url, phutils.is_email, phutils.is_hash]\n    for f in ioc_funcs:\n        if f(value):\n            return True, f.__name__.split('_')[1]\n    return False, None\n\n\ndef pin_name_mangle(pin_name, container):\n    return pin_name + '__{0}'.format(container['id'])",
             "description": "Pin domains that are younger than 15 days in the HUD.",
-            "hash": "2f8064e200ee5ef8ea2a86431b0caf163c76ca33",
+            "hash": "e62c9a1ca0110abbd9c57ea425544ebe7a67952f",
             "joint": {
                 "cells": [
                     {
@@ -1006,6 +1006,9 @@
                             ".title": {
                                 "text": "END"
                             },
+                            "g.code image": {
+                                "xlink:href": "/inc/coa/img/block_icon_code_dark_on.svg"
+                            },
                             "g.delete": {
                                 "display": "none"
                             },
@@ -1027,12 +1030,12 @@
                         "connection_name": "whois domain",
                         "connection_type": "action",
                         "custom_callback": "",
-                        "custom_code": "",
+                        "custom_code": "def on_finish(container, summary):\n    phantom.debug('on_finish() called')\n    # This function is called after all actions are completed.\n    # summary of all the action and/or all detals of actions \n    # can be collected here.\n    # adding comment for cross repo save\n\n    # summary_json = phantom.get_summary()\n    # if 'result' in summary_json:\n        # for action_result in summary_json['result']:\n            # if 'action_run_id' in action_result:\n                # action_results = phantom.get_action_results(action_run_id=action_result['action_run_id'], result_data=False, flatten=False)\n                # phantom.debug(action_results)\n\n    return",
                         "custom_join": "",
                         "custom_name": "",
                         "description": "",
                         "has_custom": false,
-                        "has_custom_block": false,
+                        "has_custom_block": true,
                         "has_custom_callback": false,
                         "has_custom_join": false,
                         "id": "aba5aced-625a-496d-88cf-80274e01a257",
@@ -1042,7 +1045,7 @@
                         "join_code": "# read-only block view not available",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 108,
+                        "line_end": 109,
                         "line_start": 95,
                         "name": "",
                         "notes": "",
@@ -1116,7 +1119,7 @@
                         "title": "END",
                         "type": "coa.StartEnd",
                         "warn": false,
-                        "z": 310
+                        "z": 311
                     }
                 ]
             },
@@ -1125,7 +1128,7 @@
         "schema": 3,
         "version": "4.5.15922"
     },
-    "create_time": "2019-09-25T17:43:36.037246+00:00",
+    "create_time": "2019-09-25T18:48:35.491951+00:00",
     "draft_mode": false,
     "labels": [
         "*"
